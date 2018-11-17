@@ -11,7 +11,7 @@ class Average extends Component {
     <table className="table">
       <thead>
         <tr>
-          <th>age </th>
+          
           <th>name</th>
           <th>company</th>
            <th>Salary </th>
@@ -25,6 +25,7 @@ class Average extends Component {
         <tbody>
           <tr><td>{obj.name}</td>
           <td>{obj.company}</td>
+          <td>{obj.salary}</td>
           <td>{obj.age}</td>
           <td>{obj.phone}</td>
           <td>{obj.email}</td>
