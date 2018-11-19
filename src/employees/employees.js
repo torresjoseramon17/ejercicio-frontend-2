@@ -22,6 +22,7 @@ class Average extends Component {
         
     
   }
+ 
 
   handleChange(e) {
     this.setState({ [e.target.id]: e.target.value })
@@ -32,6 +33,11 @@ class Average extends Component {
     this.setState({ [e.target.phone]: e.target.value })
     this.setState({ [e.target.email]: e.target.value })
   };
+  deleteObj = (index, e) => {
+    const obj = employees.assign([], this.state.obj);
+    obj.splice(index, e);
+    this.setState({obj:obj})
+  }
   
  
   render() {
@@ -55,27 +61,41 @@ class Average extends Component {
         </tr>
         </thead>
       
-        { this.state.empleados.map(obj=>
-            
+     
+      
+        { this.state.empleados.map((obj, index)=>
+
+          
+         
         
         <tbody>
+        
           
           <tr>
           <td>{obj.id}</td>
             <td>{obj.name}</td>
           <td>{obj.company}</td>
-          <td>MXN${obj.salary}.00</td>
+          <td>{obj.salary}</td>
           <td>{obj.age}</td>
           <td>{obj.phone}</td>
           <td>{obj.email}</td>
           </tr>
-          <User id={obj.id}>name={obj.name}</User>
+
+          <User 
+           id={obj.id}
+           delEvent={this.deleteObj.bind(this, index)}
+          >name={obj.name}</User>
+         
         </tbody>
+        
+        
         )}
+        
       
       
     </table>
     <AddInfo state={this.state} handleChange={this.handleChange}/>
+   
     
     </div>
     );
