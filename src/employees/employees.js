@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import employees from "./index.js"
 import AddInfo from './informacion.js';
+import Add from './addemployees.js';
+import User from "./Usar.js"
 
 class Average extends Component {
   constructor(props){
@@ -10,17 +12,28 @@ class Average extends Component {
       id:'',
       name: '',
       company:'',
+      salary:'',
       age: '',
       phone:'',
       email:''
     });
         this.handleChange = this.handleChange.bind(this);
+       
+        
     
   }
 
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+    this.setState({ [e.target.id]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.company]: e.target.value })
+    this.setState({ [e.target.salary]: e.target.value })
+    this.setState({ [e.target.age]: e.target.value })
+    this.setState({ [e.target.phone]: e.target.value })
+    this.setState({ [e.target.email]: e.target.value })
+  };
+  
+ 
   render() {
 //creating table for employyes information header
   
@@ -43,6 +56,7 @@ class Average extends Component {
         </thead>
       
         { this.state.empleados.map(obj=>
+            
         
         <tbody>
           
@@ -55,13 +69,14 @@ class Average extends Component {
           <td>{obj.phone}</td>
           <td>{obj.email}</td>
           </tr>
-         
+          <User id={obj.id}>name={obj.name}</User>
         </tbody>
         )}
       
       
     </table>
     <AddInfo state={this.state} handleChange={this.handleChange}/>
+    
     </div>
     );
   }

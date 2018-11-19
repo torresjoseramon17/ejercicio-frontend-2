@@ -1,0 +1,12 @@
+import React from 'react';
+
+const User= (props) => (
+ <div>
+ <span>{props.empleados}</span>
+ 
+ <span>{props.obj}</span>
+ <button onClick={props.delEvent}>Delete</button>
+ </div>
+)
+
+export default User;
