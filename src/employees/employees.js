@@ -7,7 +7,7 @@ import User from "./Usar.js"
 class Average extends Component {
   constructor(props){
     super(props);
-    this.state=({
+    this.state={
       empleados: employees,
       id:'',
       name: '',
@@ -16,23 +16,27 @@ class Average extends Component {
       age: '',
       phone:'',
       email:''
-    });
-        this.handleChange = this.handleChange.bind(this);
+    };
+        this.add = this.add.bind(this);
+        this.updateEmployees = this.updateEmployees.bind(this);
        
         
     
   }
+  updateEmployees(e){
+    this.setState({
+      employees: e.target.value
+    })
+  }
  
 
-  handleChange(e) {
-    this.setState({ [e.target.id]: e.target.value })
-    this.setState({ [e.target.name]: e.target.value })
-    this.setState({ [e.target.company]: e.target.value })
-    this.setState({ [e.target.salary]: e.target.value })
-    this.setState({ [e.target.age]: e.target.value })
-    this.setState({ [e.target.phone]: e.target.value })
-    this.setState({ [e.target.email]: e.target.value })
-  };
+  add(){
+    this.props.addObj(this.state.employees , this.state.quantity);
+    this.setState({
+      employees:""
+      
+    })
+  }
   deleteObj = (index, e) => {
     const obj = employees.assign([], this.state.obj);
     obj.splice(index, e);
@@ -44,13 +48,16 @@ class Average extends Component {
 //creating table for employyes information header
   
     return (
-        <div className="container">
+        <div>
         
         
                
-    <table className="table">
+        <table>
       <thead>
-        <tr>
+      <tr>
+        <th><li key={employees.obj}>
+           {employees.obj}
+         </li></th>
           <th>id</th>
           <th>name</th>
           <th>company</th>
@@ -59,19 +66,22 @@ class Average extends Component {
            <th>phone </th>
            <th>email </th>
         </tr>
+        
+        
         </thead>
       
      
       
         { this.state.empleados.map((obj, index)=>
-
-          
          
-        
         <tbody>
         
-          
+        
           <tr>
+          
+            <td><li key={employees.obj}>
+           {employees.obj}
+         </li></td>
           <td>{obj.id}</td>
             <td>{obj.name}</td>
           <td>{obj.company}</td>
@@ -79,12 +89,14 @@ class Average extends Component {
           <td>{obj.age}</td>
           <td>{obj.phone}</td>
           <td>{obj.email}</td>
-          </tr>
-
+          
           <User 
            id={obj.id}
            delEvent={this.deleteObj.bind(this, index)}
           >name={obj.name}</User>
+          
+          </tr>
+
          
         </tbody>
         
@@ -95,7 +107,7 @@ class Average extends Component {
       
     </table>
     <AddInfo state={this.state} handleChange={this.handleChange}/>
-   
+    <input onChange={this.updateObj} value={this.state.obj}></input>
     
     </div>
     );
