@@ -53,71 +53,71 @@ class Average extends Component {
         
                
         <table>
-      <thead>
-      <tr>
-        <th><li key={employees.obj}>
-           {employees.obj}
-         </li></th>
-          <th>id</th>
-          <th>name</th>
-          <th>company</th>
-           <th>Salary </th>
-           <th>age </th>
-           <th>phone </th>
-           <th>email </th>
-        </tr>
+             <thead>
+                <tr>
+                   <th><li key={employees.obj}>
+                           {employees.obj}
+                        </li></th>
+                   <th>id</th>
+                   <th>name</th>
+                   <th>company</th>
+                   <th>Salary </th>
+                   <th>age </th>
+                   <th>phone </th>
+                   <th>email </th>
+                 </tr>
         
         
-        </thead>
+             </thead>
 
 
      
       
-        { this.state.empleados.map((obj, index)=>
+         { this.state.empleados.map((obj, index)=>
          
-        <tbody>
+            <tbody>
         
         
-          <tr>
+                <tr>
           
-            <td><li key={employees.obj}>
-           {employees.obj}
-         </li></td>
-          <td>{obj.id}</td>
-            <td>{obj.name}</td>
-          <td>{obj.company}</td>
-          <td>
-            {new Intl.NumberFormat('MX', { 
-              style: 'currency', 
-              currency: 'MXN' 
-               }).format(obj.salary)}
-         </td>
-          <td>{obj.age}</td>
-          <td>{obj.phone}</td>
-          <td>{obj.email}</td>
+                   <td><li key={employees.obj}>
+                          {employees.obj}
+                       </li></td>
+                   <td>{obj.id}</td>
+                   <td>{obj.name}</td>
+                   <td>{obj.company}</td>
+                   <td>
+                       {new Intl.NumberFormat('MX', { 
+                            style: 'currency', 
+                           currency: 'MXN' 
+                         }).format(obj.salary)}
+                            </td>
+                   <td>{obj.age}</td>
+                   <td>{obj.phone}</td>
+                   <td>{obj.email}</td>
           
           
           
-          <User 
-           id={obj.id}
-           delEvent={this.deleteObj.bind(this, index)}
-          >name={obj.name}</User>
+                   <User 
+                      id={obj.id}
+                      delEvent={this.deleteObj.bind(this, index)}
+                       >name={obj.name}</User>
           
-          </tr>
+                </tr>
 
          
-        </tbody>
+             </tbody>
         
         
-        )}
+         )}
         
       
       
-    </table>
-    <AddInfo state={this.state} handleChange={this.handleChange}/>
+        </table>
+        <AddInfo state={this.state} handleChange={this.handleChange}/>
     
     
-    </div>
+      </div>
     );
   }
 }
