@@ -1,31 +1,54 @@
 import React, { Component } from 'react'
 
 class AddInfo extends Component {
-  constructor(props){
-    super(props);
-    // this.state=({
-    //   id:'',
-    //   name: '',
-    //   company:'',
-    //   age: '',
-    //   phone:'',
-    //   email:''
-   // });
 
-  }
  
  render(){
   
   
 
     return(
-      <div className= "employees">
-          <input id="obj" value={this.props.state.obj} onChange={this.props.handleChange}></input>
-          
+      <div>
+      <form onSubmit={this.addEmployees}>
+      <div>
+        <input ref={(a) => this._inputElement = a}
+           placeholder="id"></input>
          
+     </div>
+      <div>
+        <input ref={(a) => this._inputElement = a}
+           placeholder="name"></input>
+         
+     </div>
+     <div>
+        <input ref={(a) => this._inputElement = a}
+           placeholder='company'></input>
+         
+     </div>
+     <div>
+         <input ref={(a) => this._inputElement = a}
+              placeholder='salary'></input>
           
+     </div>
+     <div>
+              <input ref={(a) => this._inputElement = a}
+                 placeholder='age'></input>
+                 
+    </div>
+    <div>
+         <input ref={(a) => this._inputElement = a}
+            placeholder='phone'></input>
           
-      </div>
+   </div>
+   <div>
+          <input ref={(a) => this._inputElement = a}
+             placeholder='email'></input>
+           
+   </div>
+        
+      </form>
+      
+     </div>
 
    )
  }

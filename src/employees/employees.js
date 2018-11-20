@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import employees from "./index.js"
 import AddInfo from './informacion.js';
-import Add from './addemployees.js';
+//import Add from './addemployees.js';
 import User from "./Usar.js"
 
 class Average extends Component {
@@ -69,7 +69,8 @@ class Average extends Component {
         
         
         </thead>
-      
+
+
      
       
         { this.state.empleados.map((obj, index)=>
@@ -85,10 +86,17 @@ class Average extends Component {
           <td>{obj.id}</td>
             <td>{obj.name}</td>
           <td>{obj.company}</td>
-          <td>{obj.salary}</td>
+          <td>
+            {new Intl.NumberFormat('MX', { 
+              style: 'currency', 
+              currency: 'MXN' 
+               }).format(obj.salary)}
+         </td>
           <td>{obj.age}</td>
           <td>{obj.phone}</td>
           <td>{obj.email}</td>
+          
+          
           
           <User 
            id={obj.id}
@@ -107,7 +115,7 @@ class Average extends Component {
       
     </table>
     <AddInfo state={this.state} handleChange={this.handleChange}/>
-    <input onChange={this.updateObj} value={this.state.obj}></input>
+    
     
     </div>
     );
