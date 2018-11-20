@@ -1,6 +1,40 @@
 import React, { Component } from 'react'
 
 class AddInfo extends Component {
+  constructor(props){
+    super(props);
+    this.state= {
+      empleados:[]
+
+    };
+    this.addEempleados = this.addEempleados.bind(this);
+     
+    
+       
+        
+    
+  }
+  addEempleados(e) {
+    if (this._inputElement.value !== "") {
+      var newEmpleado = {
+        text: this._inputElement.value,
+        key: Date.now()
+      };
+
+      this.setState((prevState) => {
+        return {
+          empleados: prevState.empleados.concat(newEmpleado)
+        };
+
+      });
+    }
+
+    this._inputElement.value = "";
+
+    console.log(this.state.empleados);
+
+     e.preventDefault();
+  }
 
  
  render(){
@@ -8,8 +42,8 @@ class AddInfo extends Component {
   
 
     return(
-      <div>
-      <form onSubmit={this.addEmployees}>
+      <div className="Add">
+      <form onSubmit={this.addEmpleados}>
       <div>
         <input ref={(a) => this._inputElement = a}
            placeholder="id"></input>
@@ -45,8 +79,10 @@ class AddInfo extends Component {
              placeholder='email'></input>
            
    </div>
+       <button type="add">Add</button>
         
       </form>
+
       
      </div>
 

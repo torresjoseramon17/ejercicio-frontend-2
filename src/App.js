@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <div>
       <Average />
+      
       <Add />
       <User />
      </div>
