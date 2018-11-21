@@ -4,6 +4,7 @@ import AddInfo from './informacion.js';
 //import Add from './addemployees.js';
 import User from "./Usar.js"
 
+
 class Average extends Component {
   constructor(props){
     super(props);
@@ -65,15 +66,15 @@ class Average extends Component {
                    <th>age </th>
                    <th>phone </th>
                    <th>email </th>
-                 </tr>
+               </tr>
         
         
-             </thead>
+              </thead>
 
 
      
       
-         { this.state.empleados.map((obj, index)=>
+           { this.state.empleados.map((obj, index)=>
          
             <tbody>
         
@@ -109,7 +110,7 @@ class Average extends Component {
              </tbody>
         
         
-         )}
+          )}
         
       
       
