@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import employees from "./index.js"
 import AddInfo from './informacion.js';
-//import Add from './addemployees.js';
 import User from "./Usar.js"
 
 
@@ -19,22 +18,22 @@ class Average extends Component {
       email:''
     };
         this.add = this.add.bind(this);
-        this.updateEmployees = this.updateEmployees.bind(this);
+        this.updateEmpleados = this.updateEmpleados.bind(this);
        
         
     
   }
-  updateEmployees(e){
+  updateEmpleados(e){
     this.setState({
-      employees: e.target.value
+      empleadoss: e.target.value
     })
   }
  
 
   add(){
-    this.props.addObj(this.state.employees , this.state.quantity);
+    this.props.addObj(this.state.empleados);
     this.setState({
-      employees:""
+      empleados:""
       
     })
   }
@@ -72,7 +71,7 @@ class Average extends Component {
               </thead>
 
 
-     
+     {/*function for maping employees array */}
       
            { this.state.empleados.map((obj, index)=>
          
@@ -88,6 +87,7 @@ class Average extends Component {
                    <td>{obj.name}</td>
                    <td>{obj.company}</td>
                    <td>
+     {/*function to get format money of empĺoyees salary */}
                        {new Intl.NumberFormat('MX', { 
                             style: 'currency', 
                            currency: 'MXN' 

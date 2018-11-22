@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import $ from "jquery";
-
+/*component that add  more employees information */
 class AddInfo extends Component {
   constructor(props){
     super(props);
@@ -14,6 +14,7 @@ class AddInfo extends Component {
       email:''
 
     };
+     /* calll for each property and value of the object*/
     this.handleId = this.handleId.bind(this);
     this.handleName = this.handleName.bind(this);
     this.handleCompany = this.handleCompany.bind(this);
@@ -25,7 +26,7 @@ class AddInfo extends Component {
     
        
         
-    
+   /*handle even for each value of the object */
   }
   handleId(e) {
     e.preventDefault();
@@ -74,7 +75,10 @@ class AddInfo extends Component {
       email: e.target.value
     });
   }
-  addItem(id, name, company, salary, age, phone, email) {
+
+  /*post request to call each value*/
+
+  addIEmpleados(id, name, company, salary, age, phone, email) {
     $.ajax({
     url:'/items',
     type: "POST",
@@ -106,11 +110,12 @@ submitItem(event) {
     salary: '',
     age: '',
     phone: '',
-    email: ""
+    email: ''
   
   });
   alert('Success!')
 }
+
  
   
 
@@ -120,46 +125,54 @@ submitItem(event) {
   
 
     return(
-      <div className="Add">
+      <div>
       <form onSubmit={this.addEmpleados}>
-      <div>
-        <input ref={(a) => this._inputElement = a}
-           placeholder="id"></input>
-         
-     </div>
-      <div>
-        <input ref={(a) => this._inputElement = a}
-           placeholder="name"></input>
-         
-     </div>
-     <div>
-        <input ref={(a) => this._inputElement = a}
-           placeholder='company'></input>
-         
-     </div>
-     <div>
-         <input ref={(a) => this._inputElement = a}
-              placeholder='salary'></input>
-          
-     </div>
-     <div>
-              <input ref={(a) => this._inputElement = a}
-                 placeholder='age'></input>
-                 
-    </div>
-    <div>
-         <input ref={(a) => this._inputElement = a}
-            placeholder='phone'></input>
-          
-   </div>
-   <div>
-          <input ref={(a) => this._inputElement = a}
-             placeholder='email'></input>
-           
-   </div>
-       <button type="add">Add</button>
+      {/* inputs for employyes information */}
+      <input
+          value={this.state.id}
+          placeholder="id"
+          onChange={this.handleId}
+        />
+        <input
+          value={this.state.name}
+          placeholder="name"
+          onChange={this.handleName}
+        /><input
+        value={this.state.company}
+        placeholder="company"
+        onChange={this.handleCompany}
+      />
+      <input
+          value={this.state.salary}
+          placeholder="salary"
+          onChange={this.handleSalary}
+        />
+        <input
+          value={this.state.age}
+          placeholder="age"
+          onChange={this.handleAge}
+        />
+        <input
+          value={this.state.phone}
+          placeholder="phone"
+          onChange={this.handlePhone}
+        />
+        <input
+          value={this.state.email}
+          placeholder="email"
+          onChange={this.handleEmail}
+        />
+               
+        <button onClick={this.submitEmpleados}>¡Añadir empleado!</button>
+         <br />
+{/* inputs for currency converte */}
+         <input type="text" name="pesos"></input>
+         <input type="text" name="dollar"></input>
+{/* buttun currency convertor */}
+         <input type="button" value="convertir" onClick="calcular"></input>
         
       </form>
+ 
 
       
      </div>
