@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import employees from ".";
 
 /*component that add  more employees information */
 class AddInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      empleados: employees,
       id: "",
       name: "",
       company: "",
@@ -158,8 +160,10 @@ class AddInfo extends Component {
             onChange={this.handleEmail}
           />
 
-          <button onClick={this.submitEmpleados}>¡Añadir empleado!</button>
+          <button onClick={this.addEmpleados}>¡Añadir empleado!</button>
           <br />
+          <input type="text" name="pesos"></input>
+          <input type="text" name="dollar"></input>
         </form>
       </div>
     );

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import employees from "./index.js";
 import AddInfo from "./informacion.js";
-import User from "./Usar.js";
+
+
+
 
 class Average extends Component {
   constructor(props) {
@@ -19,6 +21,8 @@ class Average extends Component {
     };
     this.add = this.add.bind(this);
     this.updateEmpleados = this.updateEmpleados.bind(this);
+    
+    
   }
   updateEmpleados(e) {
     this.setState({
@@ -32,12 +36,16 @@ class Average extends Component {
       empleados: ""
     });
   }
-  deleteObj = (index, e) => {
-    const obj = employees.assign([], this.state.obj);
-    obj.splice(index, e);
-    this.setState({ obj: obj });
-  };
-
+ //this deletes the user by using id of them
+deleteUser = (obj, index) => {
+  console.log('this is the id',obj.id);
+  let {empleados} = this.state;
+  empleados.splice(obj.id,1,);
+  this.setState({
+    empleados: empleados
+  });
+}
+ 
   render() {
     //creating table for employyes information header
 
@@ -88,9 +96,9 @@ class Average extends Component {
                 <td>{obj.age}</td>
                 <td>{obj.phone}</td>
                 <td>{obj.email}</td>
-                <User id={obj.id} delEvent={this.deleteObj.bind(this, index)}>
-                  name={obj.name}
-                </User>
+                
+              <td><button onClick={this.deleteUser.bind(this,obj,index)} href="#">delete</button></td>
+
               </tr>
             </tbody>
           ))}
