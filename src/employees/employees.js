@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import employees from "./index.js";
-import AddInfo from "./informacion.js";
+
 
 
 
@@ -19,23 +19,27 @@ class Average extends Component {
       phone: "",
       email: ""
     };
-    this.add = this.add.bind(this);
-    this.updateEmpleados = this.updateEmpleados.bind(this);
-    
     
   }
-  updateEmpleados(e) {
-    this.setState({
-      empleadoss: e.target.value
-    });
-  }
+  
 
-  add() {
-    this.props.addObj(this.state.empleados);
-    this.setState({
-      empleados: ""
-    });
-  }
+  //to add user
+addEmpleado = () => {
+  this.setState({
+      empleados : this.state.empleados
+  })
+  console.log('hola jose');
+}
+//value of user
+update = (e) => {
+  let {empleados} = this.state;
+  empleados.push("");
+  this.setState({
+    empleados: empleados
+  })
+
+}
+
  //this deletes the user by using id of them
 deleteUser = (obj, index) => {
   console.log('this is the id',obj.id);
@@ -100,10 +104,24 @@ deleteUser = (obj, index) => {
               <td><button onClick={this.deleteUser.bind(this,obj,index)} href="#">delete</button></td>
 
               </tr>
+          
             </tbody>
           ))}
         </table>
-        <AddInfo state={this.state} handleChange={this.handleChange} />
+        
+        <form onChange={this.addEmpleados}>
+          {/* inputs for employyes information */}
+          <input
+            value={this.state.empleados}
+            placeholder="empleados"
+            onChange={this.addEmpleado}
+          />
+
+          <button onClick={this.addEmpleados}>¡Añadir empleado!</button>
+          <br />
+          <input type="text" className="form-control" placeholder="Search..." defaultValue="Search..."/>
+          
+        </form>
       </div>
     );
   }
