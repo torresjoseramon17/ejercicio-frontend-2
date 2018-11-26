@@ -24,21 +24,22 @@ class Average extends Component {
   
 
   //to add user
-addEmpleado = () => {
+addEmpleados = (obj) => {
+  console.log("hola huevon")
   this.setState({
       empleados : this.state.empleados
+      
   })
-  console.log('hola jose');
-}
-//value of user
-update = (e) => {
   let {empleados} = this.state;
-  empleados.push("");
+  empleados.push(obj);
   this.setState({
     empleados: empleados
   })
 
+  console.log('hola jose');
 }
+//value of user
+
 
  //this deletes the user by using id of them
 deleteUser = (obj, index) => {
@@ -49,6 +50,7 @@ deleteUser = (obj, index) => {
     empleados: empleados
   });
 }
+
  
   render() {
     //creating table for employyes information header
@@ -103,25 +105,27 @@ deleteUser = (obj, index) => {
                 
               <td><button onClick={this.deleteUser.bind(this,obj,index)} href="#">delete</button></td>
 
+
               </tr>
           
             </tbody>
           ))}
         </table>
         
-        <form onChange={this.addEmpleados}>
+        <form className="addEmpleados">
           {/* inputs for employyes information */}
-          <input
-            value={this.state.empleados}
-            placeholder="empleados"
-            onChange={this.addEmpleado}
-          />
+          <input type="text"
+          placeholder="id"
+            ref="myTextInput">
+                </input>
 
-          <button onClick={this.addEmpleados}>¡Añadir empleado!</button>
+          <button onClick={this.addEmpleados} href="#" defaultValue="addEmpeados">Add Empleado</button>
           <br />
-          <input type="text" className="form-control" placeholder="Search..." defaultValue="Search..."/>
+          
           
         </form>
+        <input type="text" className="form-control" placeholder="Search..." defaultValue="Search..."/>
+         <br />
       </div>
     );
   }
