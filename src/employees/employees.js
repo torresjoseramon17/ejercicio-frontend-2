@@ -24,20 +24,6 @@ class Average extends Component {
   
 
   //to add user
-addEmpleados = (obj) => {
-  console.log("hola huevon")
-  this.setState({
-      empleados : this.state.empleados
-      
-  })
-  let {empleados} = this.state;
-  empleados.push(obj);
-  this.setState({
-    empleados: empleados
-  })
-
-  console.log('hola jose');
-}
 //value of user
 
 
@@ -114,13 +100,7 @@ deleteUser = (obj, index) => {
         
         <form className="addEmpleados">
           {/* inputs for employyes information */}
-          <input type="text"
-          placeholder="id"
-            ref="myTextInput">
-                </input>
-
-          <button onClick={this.addEmpleados} href="#" defaultValue="addEmpeados">Add Empleado</button>
-          <br />
+         
           
           
         </form>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Average from './employees/employees.js'
-
+import FormEmployee from "./employees/form.js"
 
 
 
@@ -12,6 +12,7 @@ class App extends Component {
     return (
       <div>
         <Average />
+        <FormEmployee />
      </div>
     );
   }
